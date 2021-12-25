@@ -5,6 +5,7 @@ const professions = [
   'architect',
   'physician',
   'journalist',
+  'other',
 ];
 
 export default professions;

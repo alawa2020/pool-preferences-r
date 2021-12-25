@@ -6,6 +6,7 @@ const sports = [
   'basketball',
   'karate',
   'surfing',
+  'other',
 ];
 
 export default sports;

@@ -8,6 +8,7 @@ const languages = [
   'francais',
   'german',
   'italian',
+  'other',
 ];
 
 export default languages;

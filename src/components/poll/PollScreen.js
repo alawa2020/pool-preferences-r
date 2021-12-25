@@ -1,10 +1,23 @@
 import React from 'react';
+import useForm from '../../hooks/useForm';
+import LanguageCheckbox from './LanguageCheckbox';
+import ProfessionRadio from './ProfessionRadio';
+import SportSelect from './SportSelect';
 
 const PollScreen = () => {
+  const { formValues, handleChange } = useForm({
+    name: '',
+    nick: '',
+    sport: '',
+    proffesion: '',
+    languages: [],
+  });
+
+  const { name, nick, sport, profession, languages } = formValues;
   return (
     <div>
       <h1>Short Poll of your Preferences</h1>
-      <form action="https://getbootstrap.com/docs/5.1/forms/overview/">
+      <form action="https://www.google.com">
         <fieldset>
           <legend>Who are you?</legend>
           {/* name */}
@@ -18,12 +31,13 @@ const PollScreen = () => {
               id="exampleInputName1"
               autoComplete="off"
               name="name"
+              value={name}
+              onChange={handleChange}
               required
             />
             <div id="nameHelp" className="form-text">
-              We'll never share your name with anyone else.
+              * We'll never share your name with anyone else.
             </div>
-
             {/* nick */}
           </div>
           <div className="mb-3">
@@ -36,6 +50,8 @@ const PollScreen = () => {
               id="exampleInputNick1"
               autoComplete="off"
               name="nick"
+              value={nick}
+              onChange={handleChange}
             />
             <div className="form-text">This is not required</div>
           </div>
@@ -46,93 +62,13 @@ const PollScreen = () => {
           <legend>Your preferences</legend>
 
           {/* sports */}
-          <label forHtml="select-sports" className="form-label">
-            Sport
-          </label>
-          <div className="mb-3">
-            <select className="form-select" name="sport" id="select-sports">
-              <option value="" selected>
-                Choose an option
-              </option>
-              <option value="football">Football</option>
-              <option value="volleyball">Volleyball</option>
-              <option value="basketball">Basketball</option>
-            </select>
-            <div className="form-text">Choose only one option.</div>
-          </div>
+          <SportSelect />
 
           {/* profession */}
-          <div className="mb-3">
-            <p className="form-label">Profession</p>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="profession"
-                id="flexRadioDefault1"
-                value="engineer"
-                required
-              />
-              <label className="form-check-label" htmlFor="flexRadioDefault1">
-                Engineer
-              </label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="profession"
-                id="flexRadioDefault2"
-                value="licensed"
-              />
-              <label className="form-check-label" htmlFor="flexRadioDefault2">
-                Licensed
-              </label>
-            </div>
-            <div className="form-text">Choose only one option.</div>
-          </div>
+          <ProfessionRadio />
 
           {/* languages */}
-          <p className="form-label">Your languages</p>
-          <div className="mb-5">
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                value="english"
-                id="checkbox-english"
-                name="language"
-              />
-              <label className="form-check-label" htmlFor="checkbox-english">
-                English
-              </label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                value="spanish"
-                id="checkbox-spanish"
-                name="language"
-              />
-              <label className="form-check-label" htmlFor="checkbox-spanish">
-                Spanish
-              </label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                value="francais"
-                id="checkbox-francais"
-                name="language"
-              />
-              <label className="form-check-label" htmlFor="checkbox-francais">
-                Francais
-              </label>
-            </div>
-            <div className="form-text">Choose many options as you want</div>
-          </div>
+          <LanguageCheckbox />
         </fieldset>
 
         {/* final part */}
@@ -147,6 +83,7 @@ const PollScreen = () => {
             I'm agree to share the form
           </label>
         </div>
+
         <button type="submit" className="btn btn-primary">
           Submit
         </button>

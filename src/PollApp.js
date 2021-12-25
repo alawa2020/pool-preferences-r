@@ -1,9 +1,10 @@
 import React from 'react';
+import AppRouter from './routers/AppRouter';
 
 const PollApp = () => {
   return (
     <div>
-      <h1>Poll Screen</h1>
+      <AppRouter />
     </div>
   );
 };

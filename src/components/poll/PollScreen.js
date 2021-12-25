@@ -5,11 +5,11 @@ import ProfessionRadio from './ProfessionRadio';
 import SportSelect from './SportSelect';
 
 const PollScreen = () => {
-  const { formValues, handleChange } = useForm({
+  const { formValues, handleChange, resetForm } = useForm({
     name: '',
     nick: '',
     sport: '',
-    proffesion: '',
+    profession: '',
     languages: [],
   });
 
@@ -62,13 +62,19 @@ const PollScreen = () => {
           <legend>Your preferences</legend>
 
           {/* sports */}
-          <SportSelect />
+          <SportSelect handleChange={handleChange} />
 
           {/* profession */}
-          <ProfessionRadio />
+          <ProfessionRadio
+            professionForm={profession}
+            handleFormChange={handleChange}
+          />
 
           {/* languages */}
-          <LanguageCheckbox />
+          <LanguageCheckbox
+            languagesForm={languages}
+            handleChangeForm={handleChange}
+          />
         </fieldset>
 
         {/* final part */}
@@ -91,6 +97,7 @@ const PollScreen = () => {
           type="reset"
           className="ms-3 btn btn-outline-danger"
           value="reset"
+          onClick={resetForm}
         />
       </form>
     </div>

@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import PollContext from '../../context/PollContext';
 import useForm from '../../hooks/useForm';
+import types from '../../types/types';
 import LanguageCheckbox from './LanguageCheckbox';
 import ProfessionRadio from './ProfessionRadio';
 import SportSelect from './SportSelect';
 
 const PollScreen = () => {
+  const { dispatch } = useContext(PollContext);
   const { formValues, handleChange, resetForm } = useForm({
     name: '',
     nick: '',
@@ -14,10 +18,22 @@ const PollScreen = () => {
   });
 
   const { name, nick, profession, languages } = formValues;
+
+  const history = useHistory();
+
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: types.answerPoll,
+      payload: formValues,
+    });
+    history.replace('/pollfilled');
+  };
+
   return (
     <div>
       <h1>Short Poll of your Preferences</h1>
-      <form>
+      <form onSubmit={handleSubmitForm}>
         <fieldset>
           <legend>Who are you?</legend>
           {/* name */}

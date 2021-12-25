@@ -13,11 +13,11 @@ const PollScreen = () => {
     languages: [],
   });
 
-  const { name, nick, sport, profession, languages } = formValues;
+  const { name, nick, profession, languages } = formValues;
   return (
     <div>
       <h1>Short Poll of your Preferences</h1>
-      <form action="https://www.google.com">
+      <form>
         <fieldset>
           <legend>Who are you?</legend>
           {/* name */}
@@ -93,6 +93,7 @@ const PollScreen = () => {
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
+
         <input
           type="reset"
           className="ms-3 btn btn-outline-danger"

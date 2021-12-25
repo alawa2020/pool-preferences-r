@@ -5,6 +5,7 @@ import PollScreen from '../components/poll/PollScreen';
 import NavBar from '../components/ui/NavBar';
 
 const DashBoardRoutes = () => {
+  const a = 2;
   return (
     <>
       <NavBar />

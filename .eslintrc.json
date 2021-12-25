@@ -13,6 +13,7 @@
     "react/function-component-definition": "off",
     "import/no-extraneous-dependencies": "off",
     "react/no-unescaped-entities": "off",
+    "jsx-a11y/label-has-associated-control": "off",
     "no-unused-vars": "warn",
     "prettier/prettier": ["warn", { "endOfLine": "auto" }],
     "prefer-const": "warn"

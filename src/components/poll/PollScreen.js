@@ -14,7 +14,7 @@ const PollScreen = () => {
     nick: '',
     sport: '',
     profession: '',
-    languages: [],
+    languages: ['english', 'spanish', 'francais', 'portuguese'],
   });
 
   const { name, nick, profession, languages } = formValues;

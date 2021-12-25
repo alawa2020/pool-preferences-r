@@ -5,6 +5,7 @@ const professions = [
   'architect',
   'physician',
   'journalist',
+  'doctor',
   'other',
 ];
 
